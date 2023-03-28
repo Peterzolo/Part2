@@ -1,7 +1,16 @@
 import React from "react";
+import Part from "./Part";
 
-const Content = () => {
-  return <div>Content</div>;
+const Content = ({ content }) => {
+  return (
+    <div>
+      {content.map((part) => (
+        <div key={part.id}>
+          <Part part={part} />
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Content;
