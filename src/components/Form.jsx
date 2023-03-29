@@ -4,19 +4,20 @@ const Form = () => {
   const [persons, setPersons] = useState([{ name: "Arto Hellas" }]);
   const [newName, setNewName] = useState("");
 
-  const handleChange = (event) => {
-    console.log("EVENT", event.target.value);
-    setNewName(event.target.value);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
+    const newPerson = { name: newName };
+    setPersons([...persons, newPerson]);
+    setNewName("");
+  };
+
+  const handleChange = (event) => {
+    setNewName(event.target.value);
   };
 
   return (
     <div>
       <h2>Phonebook</h2>
-      <div>debug: {newName}</div>
       <form onSubmit={handleSubmit}>
         <div>
           name: <input value={newName} onChange={handleChange} />
@@ -26,7 +27,12 @@ const Form = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      ...
+      <div>
+        {" "}
+        {persons.map((person, index) => (
+          <div key={index}>{person.name}</div>
+        ))}
+      </div>
     </div>
   );
 };
