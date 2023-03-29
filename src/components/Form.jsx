@@ -6,9 +6,15 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newPerson = { name: newName };
-    setPersons([...persons, newPerson]);
-    setNewName("");
+    const name = newName;
+    const person = persons.find((person) => person.name === name);
+    if (person) {
+      alert(`${person.name} has already been added to the Phonebook`);
+    } else {
+      const newPerson = { name: newName };
+      setPersons([...persons, newPerson]);
+      setNewName("");
+    }
   };
 
   const handleChange = (event) => {
