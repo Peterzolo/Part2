@@ -4,7 +4,25 @@ import App from "./App";
 
 const root = createRoot(document.getElementById("root"));
 
-root.render(<App />);
+export const notes = [
+  {
+    id: 1,
+    content: "HTML is easy",
+    important: true,
+  },
+  {
+    id: 2,
+    content: "Browser can execute only JavaScript",
+    important: false,
+  },
+  {
+    id: 3,
+    content: "GET and POST are the most important methods of HTTP protocol",
+    important: true,
+  },
+];
+
+root.render(<App note={notes} />);
 
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 
