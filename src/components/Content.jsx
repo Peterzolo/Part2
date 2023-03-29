@@ -1,17 +1,17 @@
 import React from "react";
 import Part from "./Part";
 
-const Content = ({ content }) => {
-  const total = content?.reduce((acc, part) => acc + part.exercises, 0);
+const Content = ({ parts }) => {
+  const total = parts.reduce((acc, part) => acc + part.exercises, 0);
 
   return (
     <div>
-      {content.map((part) => (
+      {parts.map((part) => (
         <div key={part.id}>
-          <Part part={part} />
+          <Part part={part} total={total} />
         </div>
       ))}
-      <div>Total : {total}</div>
+      <h4>Total of {total}exercises</h4>
     </div>
   );
 };

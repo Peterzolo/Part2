@@ -1,17 +1,12 @@
 import Course from "./components/Course";
-import Header from "./components/Header";
 import { courses } from "./data";
-// import Header from "./components/Header";
-// import Content from "./components/Content";
-
-console.log("COURSES", courses);
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       {courses.map((course) => (
         <div key={course.id}>
-          <Header name={course.name} />
+          <Course course={course} />
         </div>
       ))}
     </div>
