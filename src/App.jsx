@@ -1,11 +1,9 @@
 import { useState } from "react";
 import Course from "./components/Course";
-import Form from "./components/Form";
 import Note from "./components/Note";
 import { courses } from "./data";
 
 const App = ({ note }) => {
-  const [notes, setNotes] = useState(note);
   return (
     <div className="container">
       {courses.map((course) => (
@@ -17,11 +15,18 @@ const App = ({ note }) => {
       <hr />
 
       <div>
-        {notes.map((note) => (
-          <Note key={note.id} note={note} />
-        ))}
+        <h2>Phonebook</h2>
+        <form>
+          <div>
+            name: <input />
+          </div>
+          <div>
+            <button type="submit">add</button>
+          </div>
+        </form>
+        <h2>Numbers</h2>
+        ...
       </div>
-      <Form />
     </div>
   );
 };
