@@ -11,7 +11,7 @@ const Content = ({ parts }) => {
           <Part part={part} total={total} />
         </div>
       ))}
-      <h4>Total of {total}exercises</h4>
+      <h5>Total of {total}exercises</h5>
     </div>
   );
 };
