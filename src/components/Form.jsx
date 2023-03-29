@@ -27,7 +27,6 @@ const Form = () => {
         <div>
           name:{" "}
           <input
-            // name="newName"
             value={newName}
             onChange={(event) => setNewName(event.target.value)}
           />
