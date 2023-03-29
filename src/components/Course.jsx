@@ -1,12 +1,8 @@
 import React from "react";
 import Header from "./Header";
 
-const Course = ({ course }) => {
-  return (
-    <div>
-      <Header />
-    </div>
-  );
+const Course = ({ courses }) => {
+  return <div></div>;
 };
 
 export default Course;

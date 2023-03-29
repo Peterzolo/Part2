@@ -2,7 +2,7 @@ import React from "react";
 import Part from "./Part";
 
 const Content = ({ content }) => {
-  const total = content.reduce((acc, part) => acc + part.exercises, 0);
+  const total = content?.reduce((acc, part) => acc + part.exercises, 0);
 
   return (
     <div>

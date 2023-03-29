@@ -1,14 +1,19 @@
 import Course from "./components/Course";
-import { course } from "./data";
 import Header from "./components/Header";
-import Content from "./components/Content";
+import { courses } from "./data";
+// import Header from "./components/Header";
+// import Content from "./components/Content";
+
+console.log("COURSES", courses);
 
 const App = () => {
   return (
     <div>
-      <Course course={course} />
-      <Header header={course.name} />
-      <Content content={course.parts} />
+      {courses.map((course) => (
+        <div key={course.id}>
+          <Header name={course.name} />
+        </div>
+      ))}
     </div>
   );
 };
