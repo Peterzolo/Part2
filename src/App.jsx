@@ -1,9 +1,9 @@
-import { useState } from "react";
 import Course from "./components/Course";
-import Note from "./components/Note";
+import Form from "./components/Form";
+
 import { courses } from "./data";
 
-const App = ({ note }) => {
+const App = () => {
   return (
     <div className="container">
       {courses.map((course) => (
@@ -13,20 +13,7 @@ const App = ({ note }) => {
       ))}
 
       <hr />
-
-      <div>
-        <h2>Phonebook</h2>
-        <form>
-          <div>
-            name: <input />
-          </div>
-          <div>
-            <button type="submit">add</button>
-          </div>
-        </form>
-        <h2>Numbers</h2>
-        ...
-      </div>
+      <Form />
     </div>
   );
 };
