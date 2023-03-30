@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 
-const Form = () => {
-  const [persons, setPersons] = useState([
-    { name: "Arto Hellas", number: "040-123456", id: 1 },
-    { name: "Ada Lovelace", number: "39-44-5323523", id: 2 },
-    { name: "Dan Abramov", number: "12-43-234345", id: 3 },
-    { name: "Mary Poppendieck", number: "39-23-6423122", id: 4 },
-  ]);
-  const [newName, setNewName] = useState("");
-  const [phone, setPhone] = useState("");
-
-  const [searchName, setsearchName] = useState("");
-
+const Form = ({
+  persons,
+  setPersons,
+  newName,
+  setNewName,
+  phone,
+  setPhone,
+  searchName,
+  setsearchName,
+}) => {
   const handleSearchChange = (event) => {
     setsearchName(event.target.value);
   };
