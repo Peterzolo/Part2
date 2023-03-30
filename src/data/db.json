@@ -24,6 +24,16 @@
       "name": "James Stud",
       "number": "39-23-6423134",
       "id": 5
+    },
+    {
+      "name": "Jere",
+      "phone": "523-4567",
+      "id": 6
+    },
+    {
+      "name": "Bose Rose",
+      "phone": "445-234-60000",
+      "id": 7
     }
   ]
 }
