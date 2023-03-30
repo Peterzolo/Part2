@@ -1,11 +1,25 @@
 import React, { useState } from "react";
 
 const Form = () => {
-  const [persons, setPersons] = useState([{ name: "Arto Hellas" }]);
+  const [persons, setPersons] = useState([
+    { name: "Arto Hellas", number: "040-123456", id: 1 },
+    { name: "Ada Lovelace", number: "39-44-5323523", id: 2 },
+    { name: "Dan Abramov", number: "12-43-234345", id: 3 },
+    { name: "Mary Poppendieck", number: "39-23-6423122", id: 4 },
+  ]);
   const [newName, setNewName] = useState("");
   const [phone, setPhone] = useState("");
 
-  console.log("PERSONS", persons);
+  const [searchName, setsearchName] = useState("");
+
+  const handleSearchChange = (event) => {
+    setsearchName(event.target.value);
+    console.log("EVENT TARGET", event.target.value);
+  };
+
+  const filteredPersonNames = persons.filter((person) =>
+    person.name.includes(searchName)
+  );
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,6 +38,24 @@ const Form = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <div>
+        <form action="">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchName}
+            onChange={handleSearchChange}
+          />
+        </form>
+        <div>
+          {filteredPersonNames.map((name) => (
+            <div key={name.id}>
+              <p>{name.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <hr />
       <form onSubmit={handleSubmit}>
         <div>
           name:{" "}
