@@ -3,7 +3,7 @@ import Course from "./components/Notes/Course";
 import PersonList from "./components/PhoneBook/PersonList";
 import Form from "./components/PhoneBook/Form";
 
-import { courses } from "./data";
+import { courses } from "../src/data/data";
 import Search from "./components/PhoneBook/Search";
 
 const App = () => {

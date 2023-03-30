@@ -1,5 +1,4 @@
 import React from "react";
-import Search from "../PhoneBook/Search";
 
 const Form = ({
   persons,
@@ -48,7 +47,6 @@ const Form = ({
           <button type="submit">add</button>
         </div>
       </form>
-      <h2>Numbers</h2>
     </div>
   );
 };
