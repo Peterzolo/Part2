@@ -14,11 +14,10 @@ const Form = () => {
 
   const handleSearchChange = (event) => {
     setsearchName(event.target.value);
-    console.log("EVENT TARGET", event.target.value);
   };
 
   const filteredPersonNames = persons.filter((person) =>
-    person.name.includes(searchName)
+    person.name.toLowerCase().includes(searchName.toLowerCase())
   );
 
   const handleSubmit = (event) => {
