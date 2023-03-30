@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Course from "./components/Course";
 import Form from "./components/Form";
+import PersonList from "./components/PersonList";
 
 import { courses } from "./data";
 
@@ -14,6 +15,7 @@ const App = () => {
   const [newName, setNewName] = useState("");
   const [phone, setPhone] = useState("");
   const [searchName, setsearchName] = useState("");
+
   return (
     <div className="container">
       {courses.map((course) => (
@@ -33,6 +35,8 @@ const App = () => {
         searchName={searchName}
         setsearchName={setsearchName}
       />
+      <hr />
+      <PersonList persons={persons} />
     </div>
   );
 };

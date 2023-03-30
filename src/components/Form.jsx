@@ -57,14 +57,6 @@ const Form = ({
         </div>
       </form>
       <h2>Numbers</h2>
-      <div>
-        {" "}
-        {persons.map((person, index) => (
-          <div key={index}>
-            {person.name} {person.phone}
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
