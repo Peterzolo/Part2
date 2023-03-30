@@ -1,4 +1,5 @@
 import React from "react";
+import Search from "./Search";
 
 const Form = ({
   persons,
@@ -10,14 +11,6 @@ const Form = ({
   searchName,
   setsearchName,
 }) => {
-  const handleSearchChange = (event) => {
-    setsearchName(event.target.value);
-  };
-
-  const filteredPersonNames = persons.filter((person) =>
-    person.name.toLowerCase().includes(searchName.toLowerCase())
-  );
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const name = newName;
@@ -34,24 +27,15 @@ const Form = ({
 
   return (
     <div>
-      <h2>Phonebook</h2>
       <div>
-        <form action="">
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchName}
-            onChange={handleSearchChange}
-          />
-        </form>
-        <div>
-          {filteredPersonNames.map((personName) => (
-            <div key={personName.id}>
-              <p>{personName.name}</p>
-            </div>
-          ))}
-        </div>
+        <Search
+          persons={persons}
+          setPersons
+          searchName={searchName}
+          setsearchName={setsearchName}
+        />
       </div>
+      <h2>Phonebook</h2>
       <hr />
       <form onSubmit={handleSubmit}>
         <div>
@@ -75,8 +59,8 @@ const Form = ({
       <h2>Numbers</h2>
       <div>
         {" "}
-        {persons.map((person) => (
-          <div key={person.id}>
+        {persons.map((person, index) => (
+          <div key={index}>
             {person.name} {person.phone}
           </div>
         ))}
