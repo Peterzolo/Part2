@@ -1,5 +1,5 @@
 import React from "react";
-import Part from "./Part";
+import Part from "../Notes/Part";
 
 const Content = ({ parts }) => {
   const total = parts.reduce((acc, part) => acc + part.exercises, 0);

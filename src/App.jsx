@@ -1,9 +1,10 @@
 import { useState } from "react";
-import Course from "./components/Course";
-import Form from "./components/Form";
-import PersonList from "./components/PersonList";
+import Course from "./components/Notes/Course";
+import PersonList from "./components/PhoneBook/PersonList";
+import Form from "./components/PhoneBook/Form";
 
 import { courses } from "./data";
+import Search from "./components/PhoneBook/Search";
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -25,6 +26,7 @@ const App = () => {
       ))}
 
       <hr />
+
       <Form
         persons={persons}
         setPersons={setPersons}
@@ -35,8 +37,17 @@ const App = () => {
         searchName={searchName}
         setsearchName={setsearchName}
       />
-      <hr />
+
       <PersonList persons={persons} />
+
+      <div>
+        <Search
+          persons={persons}
+          setPersons
+          searchName={searchName}
+          setsearchName={setsearchName}
+        />
+      </div>
     </div>
   );
 };

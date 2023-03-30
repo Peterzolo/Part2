@@ -10,6 +10,7 @@ const Search = ({ persons, searchName, setsearchName }) => {
   );
   return (
     <div>
+      <h4>Search Persons</h4>
       <form action="">
         <input
           type="text"

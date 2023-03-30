@@ -1,5 +1,5 @@
 import React from "react";
-import Search from "./Search";
+import Search from "../PhoneBook/Search";
 
 const Form = ({
   persons,
@@ -27,17 +27,9 @@ const Form = ({
 
   return (
     <div>
-      <div>
-        <Search
-          persons={persons}
-          setPersons
-          searchName={searchName}
-          setsearchName={setsearchName}
-        />
-      </div>
-      <h2>Phonebook</h2>
       <hr />
       <form onSubmit={handleSubmit}>
+        <h2>Add Person</h2>
         <div>
           name:{" "}
           <input
