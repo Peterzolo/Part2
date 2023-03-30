@@ -5,7 +5,6 @@ import Form from "./components/PhoneBook/Form";
 import axios from "axios";
 import { courses } from "../src/data/data";
 import Search from "./components/PhoneBook/Search";
-import DB from "./components/DB/DB";
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -15,7 +14,6 @@ const App = () => {
 
   useEffect(() => {
     axios.get("http://localhost:3001/persons").then((response) => {
-      console.log("promise fulfilled", response.data);
       setPersons(response.data);
     });
   }, []);
@@ -51,8 +49,6 @@ const App = () => {
           setsearchName={setsearchName}
         />
       </div>
-      <hr />
-      <DB />
     </div>
   );
 };
