@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Form = ({
   persons,
@@ -45,9 +45,9 @@ const Form = ({
           />
         </form>
         <div>
-          {filteredPersonNames.map((name) => (
-            <div key={name.id}>
-              <p>{name.name}</p>
+          {filteredPersonNames.map((personName) => (
+            <div key={personName.id}>
+              <p>{personName.name}</p>
             </div>
           ))}
         </div>
@@ -75,8 +75,8 @@ const Form = ({
       <h2>Numbers</h2>
       <div>
         {" "}
-        {persons.map((person, index) => (
-          <div key={index}>
+        {persons.map((person) => (
+          <div key={person.id}>
             {person.name} {person.phone}
           </div>
         ))}
