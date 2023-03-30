@@ -17,6 +17,7 @@ const Form = () => {
       const newPerson = { name: newName, phone };
       setPersons([...persons, newPerson]);
       setNewName("");
+      setPhone("");
     }
   };
 
