@@ -1,6 +1,5 @@
 import React from "react";
 import personService from "../../components/PhoneBook/service";
-
 const Form = ({
   persons,
   setPersons,
@@ -31,7 +30,7 @@ const Form = ({
     <div>
       <hr />
       <form onSubmit={handleSubmit}>
-        <h2>Add Person</h2>
+        <h5>Add a new person's data</h5>
         <div>
           name:{" "}
           <input
