@@ -28,7 +28,6 @@ const Form = ({
 
   return (
     <div>
-      <hr />
       <form onSubmit={handleSubmit}>
         <h5>Add a new person's data</h5>
         <div>
