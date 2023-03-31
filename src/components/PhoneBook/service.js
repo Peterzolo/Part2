@@ -17,12 +17,11 @@ export const getAll = () => {
 
 export const deleteItem = (id) => {
   const request = axios.delete(`${baseUrl}/${id}`);
-  console.log("REQUEST", request.data);
   return request;
 };
-
-export default {
-  create,
+export const updatePerson = (id, updateObject) => {
+  const request = axios.put(`${baseUrl}/${id}`, updateObject);
+  return request;
 };
 
 export const getNamesAndPhones = async () => {

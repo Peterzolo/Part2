@@ -1,12 +1,28 @@
 import React from "react";
-import { create } from "../../components/PhoneBook/service";
+import {
+  create,
+  update,
+  updatePerson,
+} from "../../components/PhoneBook/service";
 const Form = ({ persons, newName, setNewName, phone, setPhone }) => {
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, id) => {
     event.preventDefault();
     const name = newName;
     const person = persons.find((person) => person.name === name);
+    const personId = person.id;
     if (person) {
-      alert(`${person.name} has already been added to the Phonebook`);
+      const confirmReplaceName = window.confirm(
+        `${person.name} has already been added , do you want to replace?`
+      );
+      if (confirmReplaceName) {
+        const updateObject = {
+          name: person.name,
+          phone,
+        };
+        updatePerson(personId, updateObject)
+          .then((response) => response.data, setNewName(""), setPhone(""))
+          .catch((error) => console.log(error));
+      }
     } else {
       const newPerson = { name: newName, phone };
       create(newPerson).then((returnePerson) => {
