@@ -5,6 +5,8 @@ import Form from "./components/PhoneBook/Form";
 import axios from "axios";
 import { courses } from "../src/data/data";
 import Search from "./components/PhoneBook/Search";
+import DeletePerson from "./components/PhoneBook/DeletePerson";
+import RemoveItem from "./components/PhoneBook/RemoveItem";
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -25,9 +27,7 @@ const App = () => {
           <Course course={course} />
         </div>
       ))}
-
       <hr />
-
       <Form
         persons={persons}
         setPersons={setPersons}
@@ -38,9 +38,7 @@ const App = () => {
         searchName={searchName}
         setsearchName={setsearchName}
       />
-
       <PersonList persons={persons} />
-
       <div>
         <Search
           persons={persons}
@@ -48,6 +46,9 @@ const App = () => {
           searchName={searchName}
           setsearchName={setsearchName}
         />
+      </div>
+      <div>
+        <RemoveItem />
       </div>
     </div>
   );

@@ -9,6 +9,16 @@ const create = (newObject) => {
       console.log(error);
     });
 };
+
+export const getAll = () => {
+  const request = axios.get(baseUrl);
+  return request;
+};
+
+export const deleteItem = (id) => {
+  const request = axios.delete(`${baseUrl}/${id}`);
+  return request;
+};
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   create,

@@ -19,11 +19,6 @@ const Form = ({
       alert(`${person.name} has already been added to the Phonebook`);
     } else {
       const newPerson = { name: newName, phone };
-
-      // setPersons([...persons, newPerson]);
-
-      // setNewName("");
-      // setPhone("");
       personService.create(newPerson).then((returnePerson) => {
         setNewName(returnePerson);
         setNewName("");
