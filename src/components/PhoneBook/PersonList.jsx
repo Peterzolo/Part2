@@ -11,9 +11,10 @@ const PersonList = () => {
   }, []);
 
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this item?"
-    );
+    const confirmDeleteName = persons.find((person) => person.id === id);
+
+    const confirmDelete = window.confirm(`Delete ${confirmDeleteName.name} ?`);
+
     if (confirmDelete) {
       deleteFromPhoneBook(id)
         .then((result) => {
@@ -34,7 +35,7 @@ const PersonList = () => {
         <h4>Numbers</h4>
         {persons?.map((person, index) => (
           <div key={index}>
-            {person.name} {person.number}
+            {person.name} {person.phone}
           </div>
         ))}
       </div>
