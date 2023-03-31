@@ -1,15 +1,6 @@
 import React from "react";
-import personService from "../../components/PhoneBook/service";
-const Form = ({
-  persons,
-  setPersons,
-  newName,
-  setNewName,
-  phone,
-  setPhone,
-  searchName,
-  setsearchName,
-}) => {
+import { create } from "../../components/PhoneBook/service";
+const Form = ({ persons, newName, setNewName, phone, setPhone }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const name = newName;
@@ -18,7 +9,7 @@ const Form = ({
       alert(`${person.name} has already been added to the Phonebook`);
     } else {
       const newPerson = { name: newName, phone };
-      personService.create(newPerson).then((returnePerson) => {
+      create(newPerson).then((returnePerson) => {
         setNewName(returnePerson);
         setNewName("");
         setPhone("");

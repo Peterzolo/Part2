@@ -1,7 +1,7 @@
 import axios from "axios";
 const baseUrl = "http://localhost:3001/persons";
 
-const create = (newObject) => {
+export const create = (newObject) => {
   const request = axios.post(baseUrl, newObject);
   return request
     .then((response) => response.data)
@@ -20,13 +20,11 @@ export const deleteItem = (id) => {
   console.log("REQUEST", request.data);
   return request;
 };
-// eslint-disable-next-line import/no-anonymous-default-export
 
 export default {
   create,
 };
 
-// Fetches the array of names and phones from the API
 export const getNamesAndPhones = async () => {
   try {
     const response = await axios.get(`${baseUrl}`);
