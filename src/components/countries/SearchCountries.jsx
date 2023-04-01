@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import CountryDetails from "./CountryDetails";
 
 const SearchCountries = ({ countries }) => {
   const [query, setQuery] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
   const handleSearchInputChange = (event) => {
     setQuery(event.target.value);
@@ -10,8 +12,6 @@ const SearchCountries = ({ countries }) => {
   const searchedCountries = countries.filter((country) =>
     country.name.common.toLowerCase().includes(query.toLowerCase())
   );
-
-  //   const countryDetail = searchedCountries.filter((country) => ();
 
   const singleCountryDetail = searchedCountries[0];
 
@@ -30,10 +30,10 @@ const SearchCountries = ({ countries }) => {
             <p>Too many matches, specify another filter</p>
           ) : searchedCountries.length === 1 ? (
             <div>
+              <div> Name: {singleCountryDetail.name.common}</div>
               <div> Capital: {singleCountryDetail.capital[0]}</div>
               <div> Flag :{singleCountryDetail.flag}</div>
               <div> Aera: {singleCountryDetail.area}</div>
-              <div> Map {singleCountryDetail.maps.googleMaps}</div>
               <div>
                 {" "}
                 Languages:{" "}
@@ -45,12 +45,19 @@ const SearchCountries = ({ countries }) => {
               {searchedCountries.map((country) => (
                 <li key={country.cca3} className="countries-list">
                   {country.name.common}
+                  <button
+                    className="show-btn"
+                    onClick={() => setSelectedCountry(country)}
+                  >
+                    Show
+                  </button>
                 </li>
               ))}
             </ul>
           )}
         </div>
       </div>
+      {selectedCountry && <CountryDetails country={selectedCountry} />}
     </div>
   );
 };
