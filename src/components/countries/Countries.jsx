@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { getAllCountries } from "./service";
-
 import ErrorNotification from "../notification/ErrorNotification";
 import Notification from "../notification/Notification";
 
 const Countries = () => {
-  const [countries, setCountries] = [];
+  const [countries, setCountries] = useState([]);
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
+
   useEffect(() => {
-    if (countries.length > 0) {
-      getAllCountries()
-        .then()
-        .catch((error) => {});
-    }
+    getAllCountries()
+      .then((response) => {
+        setCountries(response.data);
+      })
+      .catch((error) => {
+        setErrorMessage("Could not find countries");
+        console.error(error);
+      });
   }, []);
 
   return (
@@ -26,6 +29,13 @@ const Countries = () => {
         ) : (
           <ErrorNotification message={errorMessage} />
         )}
+      </div>
+      <div className="countries-wrapper">
+        {countries?.map((country) => (
+          <div key={country.name.common} className="countries-list">
+            {country.name.common}
+          </div>
+        ))}
       </div>
     </div>
   );
