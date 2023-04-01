@@ -30,7 +30,13 @@ const Form = ({ persons, newName, setNewName, phone, setPhone }) => {
               setSuccessMessage(null);
             }, 5000);
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {
+            setSuccessMessage(`Updated ${person.name}!`);
+            setTimeout(() => {
+              setSuccessMessage(null);
+            }, 5000);
+            console.error(error);
+          });
       }
     } else {
       const newPerson = { name: newName, phone };
