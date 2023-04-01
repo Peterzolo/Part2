@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAllCountries } from "./service";
 import ErrorNotification from "../notification/ErrorNotification";
 import Notification from "../notification/Notification";
+import SearchCountries from "./SearchCountries";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -30,12 +31,8 @@ const Countries = () => {
           <ErrorNotification message={errorMessage} />
         )}
       </div>
-      <div className="countries-wrapper">
-        {countries?.map((country) => (
-          <div key={country.name.common} className="countries-list">
-            {country.name.common}
-          </div>
-        ))}
+      <div>
+        <SearchCountries countries={countries} />
       </div>
     </div>
   );
