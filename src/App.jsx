@@ -6,6 +6,7 @@ import axios from "axios";
 import { courses } from "../src/data/data";
 import Search from "./components/PhoneBook/Search";
 import Notification from "./components/notification/Notification";
+import Countries from "./components/countries/Countries";
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -53,8 +54,10 @@ const App = () => {
         setsearchName={setsearchName}
       />
       <br />
-
       <PersonList persons={persons} />
+      <br />
+      <hr />
+      <Countries />
     </div>
   );
 };

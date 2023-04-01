@@ -16,16 +16,6 @@
       "id": 3
     },
     {
-      "name": "Phil Philip",
-      "phone": "+55555-5555555-0000",
-      "id": 4
-    },
-    {
-      "name": "Phil Philip",
-      "phone": "+55555-5555555-0000",
-      "id": 5
-    },
-    {
       "name": "Ben Benson",
       "phone": "333333-77-44-51",
       "id": 6
@@ -36,19 +26,9 @@
       "id": 7
     },
     {
-      "name": "Ben Benson2",
-      "phone": "23345235235",
-      "id": 8
-    },
-    {
       "name": "Ben benson",
       "phone": "sasasf",
       "id": 9
-    },
-    {
-      "name": "New User",
-      "phone": "12345",
-      "id": 10
     },
     {
       "name": "John Felix",
@@ -59,11 +39,6 @@
       "name": "Phil Jones",
       "phone": "12345",
       "id": 12
-    },
-    {
-      "name": "New Name",
-      "phone": "12345",
-      "id": 13
     },
     {
       "name": "Peter Solo",

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { create, updatePerson } from "../../components/PhoneBook/service";
 import Notification from "../notification/Notification";
+import ErrorNotification from "../notification/ErrorNotification";
 
 const Form = ({ persons, newName, setNewName, phone, setPhone }) => {
   const [successMessage, setSuccessMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleSubmit = (event, id) => {
     event.preventDefault();
@@ -31,11 +33,16 @@ const Form = ({ persons, newName, setNewName, phone, setPhone }) => {
             }, 5000);
           })
           .catch((error) => {
-            setSuccessMessage(`Updated ${person.name}!`);
+            setErrorMessage(
+              `${person.name} has already been removed from the server`
+            );
             setTimeout(() => {
-              setSuccessMessage(null);
+              setErrorMessage(null);
             }, 5000);
-            console.error(error);
+
+            // console.error(error);
+            setNewName("");
+            setPhone("");
           });
       }
     } else {
@@ -56,7 +63,12 @@ const Form = ({ persons, newName, setNewName, phone, setPhone }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <h5>Add a new person's data</h5>
-        <Notification message={successMessage} />
+        {successMessage ? (
+          <Notification message={successMessage} />
+        ) : (
+          <ErrorNotification message={errorMessage} />
+        )}
+
         <div>
           name:{" "}
           <input
