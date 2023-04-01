@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { create, updatePerson } from "../../components/PhoneBook/service";
+import Notification from "../notification/Notification";
+
 const Form = ({ persons, newName, setNewName, phone, setPhone }) => {
+  const [successMessage, setSuccessMessage] = useState(null);
+
   const handleSubmit = (event, id) => {
     event.preventDefault();
     const name = newName;
@@ -16,7 +20,16 @@ const Form = ({ persons, newName, setNewName, phone, setPhone }) => {
           phone,
         };
         updatePerson(personId, updateObject)
-          .then((response) => response.data, setNewName(""), setPhone(""))
+          .then((response) => {
+            // eslint-disable-next-line no-unused-expressions, no-sequences
+            response.data,
+              setNewName(""),
+              setPhone(""),
+              setSuccessMessage(`Updated ${person.name}!`);
+            setTimeout(() => {
+              setSuccessMessage(null);
+            }, 5000);
+          })
           .catch((error) => console.log(error));
       }
     } else {
@@ -25,6 +38,10 @@ const Form = ({ persons, newName, setNewName, phone, setPhone }) => {
         setNewName(returnePerson);
         setNewName("");
         setPhone("");
+        setSuccessMessage(`Added ${newPerson.name}!`);
+        setTimeout(() => {
+          setSuccessMessage(null);
+        }, 5000);
       });
     }
   };
@@ -33,6 +50,7 @@ const Form = ({ persons, newName, setNewName, phone, setPhone }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <h5>Add a new person's data</h5>
+        <Notification message={successMessage} />
         <div>
           name:{" "}
           <input

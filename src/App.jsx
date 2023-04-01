@@ -5,6 +5,7 @@ import Form from "./components/PhoneBook/Form";
 import axios from "axios";
 import { courses } from "../src/data/data";
 import Search from "./components/PhoneBook/Search";
+import Notification from "./components/notification/Notification";
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -12,6 +13,7 @@ const App = () => {
   const [phone, setPhone] = useState("");
   const [searchName, setsearchName] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:3001/persons").then((response) => {
@@ -21,6 +23,10 @@ const App = () => {
 
   return (
     <div className="container">
+      <Notification
+        message={successMessage}
+        setSuccessMessage={setSuccessMessage}
+      />
       {courses.map((course) => (
         <div key={course.id}>
           <Course course={course} />
