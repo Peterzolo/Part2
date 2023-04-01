@@ -10,7 +10,10 @@ const SearchCountries = ({ countries }) => {
   const searchedCountries = countries.filter((country) =>
     country.name.common.toLowerCase().includes(query.toLowerCase())
   );
-  console.log("SEARCHED COUNTRIES", searchedCountries);
+
+  //   const countryDetail = searchedCountries.filter((country) => ();
+
+  const singleCountryDetail = searchedCountries[0];
 
   return (
     <div>
@@ -18,13 +21,25 @@ const SearchCountries = ({ countries }) => {
         <input
           className="search-input"
           type="text"
-          placeholder="Search country by name ..."
+          placeholder="Find Countries ..."
           value={query}
           onChange={handleSearchInputChange}
         />
         <div className="countries-wrapper">
           {searchedCountries.length > 10 ? (
             <p>Too many matches, specify another filter</p>
+          ) : searchedCountries.length === 1 ? (
+            <div>
+              <div> Capital: {singleCountryDetail.capital[0]}</div>
+              <div> Flag :{singleCountryDetail.flag}</div>
+              <div> Aera: {singleCountryDetail.area}</div>
+              <div> Map {singleCountryDetail.maps.googleMaps}</div>
+              <div>
+                {" "}
+                Languages:{" "}
+                {Object.values(singleCountryDetail.languages).join(", ")}
+              </div>
+            </div>
           ) : (
             <ul className="countries-wrapper">
               {searchedCountries.map((country) => (
