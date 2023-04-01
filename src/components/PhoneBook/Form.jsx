@@ -1,18 +1,14 @@
 import React from "react";
-import {
-  create,
-  update,
-  updatePerson,
-} from "../../components/PhoneBook/service";
+import { create, updatePerson } from "../../components/PhoneBook/service";
 const Form = ({ persons, newName, setNewName, phone, setPhone }) => {
   const handleSubmit = (event, id) => {
     event.preventDefault();
     const name = newName;
     const person = persons.find((person) => person.name === name);
-    const personId = person.id;
+    const personId = person?.id;
     if (person) {
       const confirmReplaceName = window.confirm(
-        `${person.name} has already been added , do you want to replace?`
+        `${person.name} has already been added , replace the old number with the new?`
       );
       if (confirmReplaceName) {
         const updateObject = {

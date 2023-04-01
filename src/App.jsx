@@ -11,6 +11,7 @@ const App = () => {
   const [newName, setNewName] = useState("");
   const [phone, setPhone] = useState("");
   const [searchName, setsearchName] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:3001/persons").then((response) => {
